@@ -1,8 +1,16 @@
+let input = document.getElementById("input");
+
 function save() {
-  var newData = document.getElementById("input").ariaValueMax;
+  var newData = input.ariaValueMax;
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
   }
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      console.log("Enter key pressed!");
+    }
+  });
 
   var oldData = JSON.parse(localStorage.getItem("data"));
   oldData.push(newData);
