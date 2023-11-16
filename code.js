@@ -1,7 +1,8 @@
 let input = document.getElementById("input");
 
 function save() {
-  var newData = input.ariaValueMax;
+  var newData = input.value;
+
   if (localStorage.getItem("data") == null) {
     localStorage.setItem("data", "[]");
   }
