@@ -1,28 +1,10 @@
-let input = document.getElementById("input");
+var input = document.getElementById("input");
 
-function save() {
-  var newData = input.value;
-
-  if (localStorage.getItem("data") == null) {
-    localStorage.setItem("data", "[]");
-  }
-
-  input.addEventListener("keydown", (event) => {
+if (input) {
+  input.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-      console.log("Enter key pressed!");
+      event.preventDefault();
+      console.log(input.value);
     }
   });
-
-  var oldData = JSON.parse(localStorage.getItem("data"));
-  oldData.push(newData);
-
-  localStorage.setItem("data", JSON.stringify(oldData));
-}
-
-function view() {
-  if (localStorage.getItem("data") != null) {
-    document.getElementById("output").innerHTML = JSON.parse(
-      localStorage.getItem("data")
-    );
-  }
 }
