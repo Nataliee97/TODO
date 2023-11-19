@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React • TodoMVC</title>
+    <title>Todos</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -11,7 +11,13 @@
       <h1>todos</h1>
       <div>
         <input id="input" placeholder="What needs to be done?" />
-        <section id="output"></section>
+        <div class="items"></div>
+        <nav>
+          <div class="itemLeft"></div>
+          <button class="all">All</button>
+          <button class="active">Active</button>
+          <button class="completed">Completed</button>
+        </nav>
       </div>
       <footer class="app">
         <p>Double-click to edit a todo</p>
