@@ -31,7 +31,7 @@ div.app a {
 }
 
 input,
-div.items,
+#output,
 nav {
   padding: 16px 16px 16px 60px;
   border: none;
