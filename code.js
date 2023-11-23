@@ -1,18 +1,25 @@
 var input = document.getElementById("input");
 var output = document.getElementById("output");
-var allInputs = JSON.parse(localStorage.getItem("allInputs")) || [];
+var tasks = [];
+var setItems = function (x) {
+  localStorage.setItem("tasks", JSON.stringify(x));
+};
+var getItems = function () {
+  tasks = JSON.parse(localStorage.getItem("tasks"));
+};
 
-if (input) {
-  input.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      allInputs.push(input.value);
-      input.value = "";
-      localStorage.setItem("allInputs", JSON.stringify(allInputs));
-      for (i = 0; i < allInputs.length; i++) {
-        console.log(allInputs[i]); // wyświetla wszystkie
-        output.innerHTML = allInputs[i]; // tylko ostatni
-      }
-    }
-  });
-}
+input.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const task = {
+      id: new Date().getTime(),
+      name: input.value,
+    };
+    tasks.push(task);
+    input.value = "";
+    setItems(tasks);
+    getItems();
+  }
+});
+
+// function renderTasks() {tasks.map(el => )}
