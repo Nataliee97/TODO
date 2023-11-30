@@ -5,15 +5,13 @@ var setItems = function (x) {
   localStorage.setItem("tasks", JSON.stringify(x));
 };
 var getItems = function () {
-  // usuwanie li
+  output.innerHTML = "";
   tasks = JSON.parse(localStorage.getItem("tasks"));
   const list = tasks.map((el) => {
-    console.log(output);
-    var li1 = document.createElement("li");
+    li1 = document.createElement("li");
     li1.textContent = el;
     output.appendChild(li1);
   });
-  console.log(tasks);
 };
 
 input.addEventListener("keypress", function (event) {
