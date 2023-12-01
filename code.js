@@ -11,7 +11,10 @@ var getItems = function () {
   const list = tasks.map((el) => {
     var li1 = document.createElement("li");
     li1.textContent = el;
+    var checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
     output.appendChild(li1);
+    li1.appendChild(checkbox);
   });
 };
 
