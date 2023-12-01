@@ -4,15 +4,20 @@ var tasks = [];
 var setItems = function (x) {
   localStorage.setItem("tasks", JSON.stringify(x));
 };
+
 var getItems = function () {
   output.innerHTML = "";
   tasks = JSON.parse(localStorage.getItem("tasks"));
   const list = tasks.map((el) => {
-    li1 = document.createElement("li");
+    var li1 = document.createElement("li");
     li1.textContent = el;
     output.appendChild(li1);
   });
 };
+
+if (localStorage.tasks) {
+  window.onload = getItems();
+}
 
 input.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
