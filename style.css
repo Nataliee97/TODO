@@ -30,8 +30,8 @@ div.app a {
   color: #bfbfbf;
 }
 
-input,
-#output,
+#input,
+div #output,
 nav {
   padding: 16px 16px 16px 60px;
   border: none;
@@ -40,8 +40,78 @@ nav {
   font-size: 2rem;
 }
 
+div #output,
+nav {
+  padding: 0;
+  margin: auto;
+  width: 465.6px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ededed;
+}
+
+.todo {
+  display: flexbox;
+  justify-self: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+button,
+#itemLeft {
+  font-size: 0.5em;
+  height: fit-content;
+  border: none;
+  background-color: initial;
+  padding: 1rem;
+  color: #777;
+}
+
+button.clear {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0;
+}
+
+div #output {
+  display: block;
+}
+
 input::placeholder {
   color: #e6e6e6;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  padding: 1rem;
+}
+
+[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  border: solid #e6e6e6;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 50%;
+}
+
+.checkbox-checked {
+  border: 2px solid #4caf50;
 }
 
 footer {
