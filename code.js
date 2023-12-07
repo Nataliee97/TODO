@@ -1,6 +1,10 @@
 var input = document.getElementById("input");
 var output = document.querySelector("ul");
 var itemLeft = document.getElementById("itemLeft");
+var all = document.getElementsByClassName("all");
+var active = document.getElementsByClassName("active");
+var done = document.getElementsByClassName("completed");
+var clear = document.getElementsByClassName("clear");
 var tasks = [];
 var setItems = function (x) {
   localStorage.setItem("tasks", JSON.stringify(x));
@@ -19,7 +23,6 @@ var getItems = function () {
     output.appendChild(li1);
     li1.appendChild(checkbox);
   });
-
   updateItemLeft();
 };
 
@@ -55,4 +58,42 @@ output.addEventListener("change", function (event) {
     }
     updateItemLeft();
   }
+});
+
+all[0].addEventListener("click", function () {
+  getItems();
+});
+
+clear[0].addEventListener("click", function () {
+  tasks = tasks.filter((task) => !task.completed);
+  setItems(tasks);
+  getItems();
+});
+
+var isCompleted = function (showCompleted) {
+  output.innerHTML = "";
+  var filteredTasks = showCompleted
+    ? tasks.filter((task) => task.completed)
+    : tasks.filter((task) => !task.completed);
+
+  filteredTasks.map((el, index) => {
+    var li1 = document.createElement("li");
+    li1.textContent = el.text;
+    var checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute("id", "task_" + index);
+    checkbox.checked = el.completed || false;
+    output.appendChild(li1);
+    li1.appendChild(checkbox);
+  });
+
+  updateItemLeft();
+};
+
+active[0].addEventListener("click", function () {
+  isCompleted(false);
+});
+
+done[0].addEventListener("click", function () {
+  isCompleted(true);
 });
