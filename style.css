@@ -98,6 +98,7 @@ li {
   align-items: center;
   border-bottom: 1px solid #ededed;
   padding: 1rem;
+  color: black;
 }
 
 [type="checkbox"] {

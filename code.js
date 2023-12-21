@@ -20,6 +20,11 @@ var getItems = function () {
     checkbox.setAttribute("type", "checkbox");
     checkbox.setAttribute("id", "task_" + index);
     checkbox.checked = el.completed || false;
+
+    if (el.completed) {
+      li1.style.textDecoration = "line-through";
+      li1.style.color = "#777";
+    }
     output.appendChild(li1);
     li1.appendChild(checkbox);
   });
@@ -53,8 +58,12 @@ output.addEventListener("change", function (event) {
 
     if (event.target.checked) {
       event.target.classList.add("checkbox-checked");
+      event.target.parentNode.style.textDecoration = "line-through";
+      event.target.parentNode.style.color = "#777";
     } else {
       event.target.classList.remove("checkbox-checked");
+      event.target.parentNode.style.textDecoration = "none";
+      event.target.parentNode.style.color = "black";
     }
     updateItemLeft();
     setItems(tasks);
