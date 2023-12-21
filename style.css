@@ -104,14 +104,24 @@ li {
   width: 2rem;
   height: 2rem;
   margin-right: 1rem;
-  border: solid #e6e6e6;
-  appearance: none;
-  -webkit-appearance: none;
+  border: 2px solid #e6e6e6;
   border-radius: 50%;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
 }
 
-.checkbox-checked {
+[type="checkbox"]:checked {
   border: 2px solid #4caf50;
+}
+
+[type="checkbox"]:checked::before {
+  content: "\2714";
+  font-size: 1.5rem;
+  color: #4caf50;
+  position: absolute;
+  left: 20%;
 }
 
 footer {

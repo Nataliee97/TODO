@@ -57,6 +57,7 @@ output.addEventListener("change", function (event) {
       event.target.classList.remove("checkbox-checked");
     }
     updateItemLeft();
+    setItems(tasks);
   }
 });
 
