@@ -107,3 +107,39 @@ active[0].addEventListener("click", function () {
 done[0].addEventListener("click", function () {
   isCompleted(true);
 });
+
+output.addEventListener("dblclick", function (event) {
+  if (event.target.tagName === "LI") {
+    var checkbox = event.target.querySelector("input[type='checkbox']");
+    checkbox.style.visibility = "hidden";
+
+    event.target.setAttribute("contenteditable", "true");
+    event.target.focus();
+
+    event.target.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        event.target.removeAttribute("contenteditable");
+        checkbox.style.visibility = "visible";
+
+        var index = Array.from(event.target.parentNode.children).indexOf(
+          event.target
+        );
+        tasks[index].text = event.target.textContent;
+        setItems(tasks);
+        getItems();
+      }
+    });
+
+    event.target.addEventListener("blur", function () {
+      event.target.removeAttribute("contenteditable");
+      checkbox.style.visibility = "visible";
+
+      var index = Array.from(event.target.parentNode.children).indexOf(
+        event.target
+      );
+      tasks[index].text = event.target.textContent;
+      setItems(tasks);
+      getItems();
+    });
+  }
+});
