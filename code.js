@@ -27,6 +27,27 @@ var getItems = function () {
     }
     output.appendChild(li1);
     li1.appendChild(checkbox);
+
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "X";
+    deleteButton.className = "delete-button";
+
+    deleteButton.addEventListener("click", function () {
+      tasks.splice(index, 1);
+      setItems(tasks);
+      getItems();
+    });
+
+    li1.addEventListener("mouseover", function () {
+      deleteButton.style.display = "inline-block";
+    });
+
+    li1.addEventListener("mouseout", function () {
+      deleteButton.style.display = "none";
+    });
+    li1.appendChild(deleteButton);
+
+    output.appendChild(li1);
   });
   updateItemLeft();
 };

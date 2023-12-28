@@ -128,3 +128,16 @@ li {
 footer {
   margin-top: 4rem;
 }
+
+.delete-button {
+  display: none;
+  position: absolute;
+  margin-left: 25rem;
+  cursor: pointer;
+  background-color: rgba(175, 47, 47, 0.15);
+  color: #fff;
+  border: none;
+  padding: 3px 6px;
+  font-size: 12px;
+  border-radius: 50%;
+}
