@@ -12,7 +12,15 @@
       <div class="todo">
         <input id="input" placeholder="What needs to be done?" />
         <div id="output">
-          <ul></ul>
+          <ul>
+            <template class="toDoList">
+              <li>
+                <input type="checkbox" />
+                <span class="taskName"></span>
+                <button class="deleteButton">X</button>
+              </li>
+            </template>
+          </ul>
         </div>
         <nav>
           <div id="itemLeft"></div>
