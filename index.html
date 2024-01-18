@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>todos</h1>
+      <div class="todo">
+        <input id="input" placeholder="What needs to be done?" />
+        <div id="output">
+          <ul>
+            <template class="toDoList">
+              <li>
+                <input type="checkbox" />
+                <span class="taskName"></span>
+                <button class="deleteButton">X</button>
+              </li>
+            </template>
+          </ul>
+        </div>
+        <nav>
+          <div id="itemLeft"></div>
+          <button class="all">All</button>
+          <button class="active">Active</button>
+          <button class="completed">Completed</button>
+          <button class="clear">Clear completed</button>
+        </nav>
+      </div>
+      <footer class="app">
+        <p>
+          Created by
+          <a href="https://github.com/Nataliee97">Nataliee97</a>
+        </p>
+      </footer>
+    </div>
+    <script src="code.js"></script>
+  </body>
+</html>
